@@ -1,15 +1,23 @@
 var axios = require('axios');
 
 exports.handler = (event, context, callback) => {
+    if(event.pathParameters.proxy !== '' && event.pathParameters.proxy !== undefined) {
+        // console.log(JSON.stringify(event));
+    }
+    const response = {
+        "statusCode": 200,
+        "body": JSON.stringify(event);
+    }
     //Parse Event Object to get request and path params
-    if(event.pathParameters !== "" && event.pathParameters !== undefined) {
-        console.log(event.pathParameters);
-    }
-    if (event.body !== null && event.body !== undefined) {
-        let body = JSON.parse(event.body);
-        //your code
-        console.log(body);
-    }
+//   if (event.context['resource-path'] === '/clients') {
+      
+    //   if (event.context['http-method'] === 'DELETE') {
+    //   } else if (event.context['http-method'] === 'GET') {
+    //   } else if (event.context['http-method'] === 'POST') {
+    //   } else if (event.context['http-method'] === 'PUT') {
+    //   }
+//   };
+
 
     // //Get the Auth TOKEN 
     // axios({
