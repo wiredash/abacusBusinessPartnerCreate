@@ -1,0 +1,134 @@
+{
+  "EDITOR_STATE": {
+    "allProjectFiles": {
+      "f9f32231-db90-478c-a644-fdd486a9dcb1": {
+        "id": "f9f32231-db90-478c-a644-fdd486a9dcb1",
+        "parent": null,
+        "name": "abacusBusinessPartnerCreate",
+        "type": "DIRECTORY",
+        "isDirectory": true,
+        "children": [
+          "1fef7023-f5b0-498f-9bdd-01632a998aee"
+        ],
+        "isRemovable": false,
+        "filePath": "abacusBusinessPartnerCreate"
+      },
+      "1fef7023-f5b0-498f-9bdd-01632a998aee": {
+        "id": "1fef7023-f5b0-498f-9bdd-01632a998aee",
+        "parent": "f9f32231-db90-478c-a644-fdd486a9dcb1",
+        "name": "lambda.js",
+        "type": "LAMBDA_FILE",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "abacusBusinessPartnerCreate/lambda.js",
+        "code": "var axios = require('axios');\n\nexports.handler = (event, context, callback) => {\n    //Parse Event Object to get request and path params\n    if(event.pathParameters !== \"\" && event.pathParameters !== undefined) {\n        console.log(event.pathParameters);\n    }\n    if (event.body !== null && event.body !== undefined) {\n        let body = JSON.parse(event.body);\n        //your code\n        console.log(body);\n    }\n\n    // //Get the Auth TOKEN \n    // axios({\n    //     method: 'post',\n    //     headers: { 'content-type': 'application/json' },\n    //     url: `https://api.abacus.ac/api/v1/token_auth/`,\n    //     data: {\n    //         username: 'api@adaptivebrane.com',\n    //         password: 'bP7,+]d]P[(9rKC{'\n    //     }\n    // })\n    //     .then(function (response) {\n    //         //Save the token to a reusable config element\n    //         var config = {\n    //             headers: { 'Authorization': 'JWT ' + response.data.token }\n    //         };\n    //         //Get the Company API    \n    //         axios.get(`https://api.abacus.ac/api/v1/companies/?search=adaptivebrane`, config)\n    //             .then(function (response) {\n    //                 console.log(response);\n    //                 const companyId = response.data.results[0].id;\n    //                 //Get all Clients for Company\n    //                 axios.get(`https://api.abacus.ac/api/v1/clients/?company=` + companyId, config)\n    //                     .then((clientResponse) => {\n\n    //                         var clientsData = clientResponse.data.results.map((obj, i) => {\n    //                             return obj;\n    //                         });\n\n    //                         const lambdaResponse = {\n    //                             isBase64Encoded: false,\n    //                             statusCode: 200,\n    //                             body: JSON.stringify(clientsData) \n    //                         };\n    //                         //return the list of clients\n    //                         callback(null, lambdaResponse);\n    //                     })\n    //                     .catch((clientErr) => {\n    //                         console.log('Clients API Failed=> ', err);\n    //                     });\n    //             })\n    //             .catch((err) => {\n    //                 console.log('Company API Failed=> ', err);\n    //             });\n    //     })\n    //     .catch(function (error) {\n    //         console.log('Auth API Failed', error);\n    //     });\n\n}\n\n",
+        "triggers": [
+          {
+            "resourceName": "apigusEast1abacusBusinessPartnersclientget",
+            "config": {}
+          }
+        ],
+        "config": {
+          "runtime": "nodejs8.10",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": []
+        },
+        "testCases": {
+          "02cee6b5-76c0-4cec-a4b5-60527b69d02d": {
+            "id": "02cee6b5-76c0-4cec-a4b5-60527b69d02d",
+            "name": "t1",
+            "functionId": "1fef7023-f5b0-498f-9bdd-01632a998aee",
+            "event": "{\n    \"key1\": \"value1\",\n    \"key2\": \"value2\",\n    \"key3\": \"value3\"\n}"
+          }
+        }
+      }
+    },
+    "deletedFiles": [],
+    "rootNode": "f9f32231-db90-478c-a644-fdd486a9dcb1",
+    "openFiles": [
+      "1fef7023-f5b0-498f-9bdd-01632a998aee"
+    ],
+    "currentFileId": "1fef7023-f5b0-498f-9bdd-01632a998aee",
+    "resources": {
+      "apigusEast1abacusBusinessPartnerget": {
+        "name": "apigusEast1abacusBusinessPartnerget",
+        "type": "API_GATEWAY",
+        "config": {
+          "selectedRegion": "us-east-1",
+          "apiMode": 0,
+          "apiName": "abacusBusinessPartner",
+          "endpointType": "REGIONAL",
+          "resourceMode": 0,
+          "resourceName": "",
+          "resourcePath": "/",
+          "restMethod": "GET",
+          "proxyIntegration": false,
+          "enableCORS": false,
+          "stageMode": 0,
+          "stageName": "Dev"
+        },
+        "globallyEditable": false
+      },
+      "apigusEast1abacusBusinessPartnersclientget": {
+        "name": "apigusEast1abacusBusinessPartnersclientget",
+        "type": "API_GATEWAY",
+        "config": {
+          "selectedRegion": "us-east-1",
+          "apiMode": 0,
+          "apiName": "abacusBusinessPartners",
+          "endpointType": "REGIONAL",
+          "resourceMode": 0,
+          "resourceName": "client/",
+          "resourcePath": "/client/",
+          "restMethod": "GET",
+          "proxyIntegration": false,
+          "enableCORS": false,
+          "stageMode": 0,
+          "stageName": "Dev"
+        },
+        "globallyEditable": false
+      }
+    },
+    "customTemplate": {
+      "dialect": null,
+      "definitions": {}
+    },
+    "envVariables": [
+      {
+        "lambdaId": "all",
+        "varKey": "SIGMA_AWS_ACC_ID",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": false
+      }
+    ],
+    "packageJSON": {
+      "dependencies": {
+        "axios": {
+          "name": "axios",
+          "version": "0.19.0"
+        }
+      }
+    }
+  },
+  "PROJECT_META": {
+    "projectName": "abacusBusinessPartnerCreate",
+    "projectDescription": "Creates a business partner",
+    "projectVersion": "1.0.0",
+    "projectRegion": "us-east-1",
+    "platform": "AWS",
+    "platformRegions": {},
+    "lastSave": 1561087874242
+  },
+  "VCS_STATE": {
+    "provider": "GitHub",
+    "repo": {
+      "name": "abacusBusinessPartnerCreate",
+      "url": "https://github.com/wiredash/abacusBusinessPartnerCreate"
+    }
+  }
+}
