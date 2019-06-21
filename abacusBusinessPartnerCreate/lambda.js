@@ -6,8 +6,9 @@ exports.handler = (event, context, callback) => {
     }
     const response = {
         "statusCode": 200,
-        "body": JSON.stringify(event);
+        "body": JSON.stringify(event)
     }
+    callback(null, response);
     //Parse Event Object to get request and path params
 //   if (event.context['resource-path'] === '/clients') {
       
