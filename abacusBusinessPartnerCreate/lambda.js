@@ -4,7 +4,7 @@ exports.handler = (event, context, callback) => {
     if(event.pathParameters.proxy !== '' && event.pathParameters.proxy !== undefined) {
         // console.log(JSON.stringify(event));
     }
-    const response = {
+    const response = { 
         "statusCode": 200,
         "body": JSON.stringify(event)
     }
